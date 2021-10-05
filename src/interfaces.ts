@@ -82,7 +82,7 @@ type AddFnType = (a: number, b: number) => number; // this would be the function
 interface AddFn {
   (a: number, b: number): number;
 }
-const addFn: AddFn = (a: number, b: number) => a + b;
+const addFn: AddFn = (a,b)=> a + b;
 
 // Optional parameters and properties
 // in the interfaces for objects we can define optional parameters for objects and classes

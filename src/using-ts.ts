@@ -1,4 +1,4 @@
-const button = document.querySelector("button") as HTMLButtonElement;
+const button = < HTMLButtonElement>document.querySelector("button");
 // ! before the getElementById tells typescript im sure that the input element with that id is going to exist
 const input1 = document.getElementById("num1")! as HTMLInputElement;
 // as HTMLInputElement is type casting, we letting ts know that the element with that id is an html input

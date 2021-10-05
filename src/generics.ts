@@ -25,6 +25,7 @@ interface IMergedObj {
   age: number;
 }
 const mergedObj1 = merge({ name: 'Hilary' }, { age: 42 }) as IMergedObj;
+// const mergedObj1 = <IMergedObj>merge({ name: 'Hilary' }, { age: 42 });
 console.log(mergedObj1.name, mergedObj1.age);
 // but this solution is very cumbersome if we have to do it every time.
 // to help with this we can create a generic function
@@ -173,12 +174,12 @@ console.log(textStorage.storedData);
 // with the current implementation of the generic class we will have a problem with object arrays when removing objects since they are referenced types
 const objStorage = new DataStorage<object>([{ name: 'Mercy' }]);
 objStorage.addItem({ color: 'blue' });
-console.log(objStorage.storedData);
+console.log('objStorage',objStorage.storedData);
 // it is not removed since it is not the same reference
 objStorage.removeItem({ color: 'blue' });
-console.log(objStorage.storedData);
+console.log('objStorage',objStorage.storedData);
 const combinedStorage3 = new DataStorage<
-  string | number | { [key: string]: any }
+  string | number | IGenericObject<any>
 >([{ name: 'Mercy' }, 30, 'corridor']);
 console.log(combinedStorage3.storedData);
 combinedStorage3.addItem({ color: 'red' });
